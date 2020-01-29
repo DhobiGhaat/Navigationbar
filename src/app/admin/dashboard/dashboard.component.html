@@ -1,0 +1,18 @@
+<div class="con">
+   Welcome {{adminName | uppercase}}
+</div>
+
+<div class="card">
+
+    
+   <div class="row">
+       <div class="d-flex justify-content-center">
+           <button [routerLink]="['/customer']" routerLinkActive="router-link-active" class="btn btn-success">Cutomer</button>
+       </div>
+   </div><br>
+   <div class="row">
+       <div class="d-flex justify-content-center">
+           <button [routerLink]="['/orderstatus']" routerLinkActive="router-link-active" class="btn btn-success">OrderStatus</button>
+       </div>
+   </div><br>
+</div>

@@ -1,0 +1,47 @@
+<!--   orderId:number;
+    weight:number;
+    pickUpDate:Date;
+    deliveryDate:Date;
+    orderDate:Date;
+    status:string;
+     bill:number;
+     plan:{serviceID:number,
+          price:number,
+          service:string,
+          } -->
+<div class="con">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Weight</th>
+            <th>pickUpDate</th>
+            <th>deliveryDate</th>
+            <th>orderDate</th>
+            <th>orderStatus</th>
+            <th>serviceType</th>
+            <th>bill</th>
+            <th>UpdateOrderStatus</th>
+        </tr>
+        <tr *ngFor="let order of allOrders; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{order.weight}}</td>
+            <td>{{order.pickUpDate}}</td>
+            <td>{{order.deliveryDate}}</td>
+            <td>{{order.orderDate}}</td>
+            <td><select (change)="changedStatus($event)">
+                <ng-container *ngFor="let orderstatus of orderStatus; let j=index">
+                <option [value]=orderstatus [selected]="orderstatus === order.status"> {{orderstatus}}
+                </option>
+            </ng-container>
+              </select>
+            </td>
+            <td>{{order.plan.service}}</td>
+            <td>{{order.bill}}</td>
+            <td><button (click)="updateOrderStatus(order.orderId,selectedStatus)">UpdateOrderStatus</button></td>
+        </tr>
+    </table>
+
+    <div class="btn btn-primary" (click)="getAllOrders()">view All Orders</div>
+</div>
+
+
